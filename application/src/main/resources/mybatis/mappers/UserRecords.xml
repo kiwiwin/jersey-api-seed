@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper
+        PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="records">
+    <resultMap id="user" type="com.github.kiwiwin.records.UserRecord">
+        <result property="uuid" column="U_UUID"/>
+        <result property="name" column="U_NAME"/>
+        <result property="createdAt" column="U_CREATED_AT"/>
+    </resultMap>
+</mapper>

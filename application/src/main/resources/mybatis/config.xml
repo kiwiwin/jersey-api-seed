@@ -1,0 +1,39 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE configuration
+        PUBLIC "-//mybatis.org//DTD Config 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-config.dtd">
+<configuration>
+    <properties resource="db.properties">
+        <property name="defaultExecutorType" value="BATCH"/>
+    </properties>
+    <typeHandlers>
+        <package name="com.github.kiwiwin.mybatis.handler"/>
+    </typeHandlers>
+    <objectFactory type="com.github.kiwiwin.mybatis.ObjectFactory"/>
+    <environments default="development">
+        <environment id="development">
+            <transactionManager type="JDBC">
+                <property name="closeConnection" value="false"/>
+                <property name="autoCommit" value="false"/>
+            </transactionManager>
+            <dataSource type="POOLED">
+                <property name="driver" value="${db.driver}"/>
+                <property name="url" value="${db.url}"/>
+                <property name="username" value="${db.user}"/>
+                <property name="password" value="${db.password}"/>
+                <property name="driver.encoding" value="UTF8"/>
+                <property name="poolPingEnabled" value="true"/>
+                <property name="poolPingQuery" value="SELECT 1"/>
+                <property name="poolMaximumActiveConnections" value="500"/>
+                <property name="poolMaximumIdleConnections" value="5"/>
+                <property name="poolPingConnectionsNotUsedFor" value="180000"/>
+            </dataSource>
+        </environment>
+    </environments>
+    <mappers>
+        <mapper resource="mybatis/mappers/Columns.xml"/>
+
+        <mapper resource="mybatis/mappers/UserRecords.xml"/>
+        <mapper resource="mybatis/mappers/UserMapper.xml"/>
+    </mappers>
+</configuration>

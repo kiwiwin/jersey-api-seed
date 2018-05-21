@@ -1,0 +1,6 @@
+rootProject.name = 'jersey-api-seed'
+
+include 'core'
+include 'api'
+include 'application'
+include 'migration'
